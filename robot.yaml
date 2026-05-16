@@ -1,0 +1,8 @@
+tasks:
+  Browser Example:
+    shell: python -m robocorp.tasks run tasks.py
+
+environmentConfigs:
+  - conda.yaml
+
+artifactsDir: output
