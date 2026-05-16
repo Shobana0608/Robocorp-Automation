@@ -16,12 +16,7 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4
 
-    - name: Setup Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.10'
-
-    - name: Install Robocorp RCC
+    - name: Install RCC
       shell: powershell
       run: |
         choco install robocorp-rcc -y
@@ -30,7 +25,7 @@ jobs:
       run: |
         rcc --version
 
-    - name: Run Robot
+    - name: Run Automation
       run: |
         rcc task run
 

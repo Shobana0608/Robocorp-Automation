@@ -1,8 +1,10 @@
 channels:
   - conda-forge
+
 dependencies:
-  - python=3.9
+  - python=3.10
+  - pip
+
   - pip:
-      - robocorp
-      - robocorp-tasks
       - rpaframework
+      - robocorp
