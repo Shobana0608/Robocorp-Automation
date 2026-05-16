@@ -1,0 +1,36 @@
+name: Robocorp CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  run-robot:
+
+    runs-on: windows-latest
+
+    steps:
+
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Install RCC
+      run: |
+        choco install robocorp-rcc
+
+    - name: Run Robocorp Automation
+      run: |
+        rcc task run
+
+    - name: Upload Output Files
+      uses: actions/upload-artifact@v4
+      with:
+        name: robot-output
+        path: output/
