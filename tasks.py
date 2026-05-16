@@ -37,7 +37,6 @@ def step_two_google_search():
         browser.wait_until_page_contains(
             "RobotSpareBin Industries"
         )
-
         browser.capture_page_screenshot(
             "output/robotsparebin.png"
         )
