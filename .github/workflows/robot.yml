@@ -1,4 +1,4 @@
-name: Robocorp CI Pipeline
+name: Python Automation CI
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
 
-  run-robot:
+  run-automation:
 
     runs-on: windows-latest
 
@@ -16,21 +16,7 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4
 
-    - name: Install RCC
-      shell: powershell
-      run: |
-        choco install robocorp-rcc -y
-
-    - name: Verify RCC
-      run: |
-        rcc --version
-
-    - name: Run Automation
-      run: |
-        rcc task run
-
-    - name: Upload Output
-      uses: actions/upload-artifact@v4
+    - name: Setup Python
+      uses: actions/setup-python@v5
       with:
-        name: robot-output
-        path: output/
+        python
