@@ -31,7 +31,7 @@ def step_two_google_search():
 
         browser.open_available_browser(
             "https://robotsparebinindustries.com",
-            maximized=True
+            headless=True
         )
 
         browser.wait_until_page_contains(

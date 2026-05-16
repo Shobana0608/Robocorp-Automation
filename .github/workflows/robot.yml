@@ -21,15 +21,20 @@ jobs:
       with:
         python-version: '3.10'
 
-    - name: Install RCC
+    - name: Install Robocorp RCC
+      shell: powershell
       run: |
-        choco install robocorp-rcc
+        choco install robocorp-rcc -y
 
-    - name: Run Robocorp Automation
+    - name: Verify RCC
+      run: |
+        rcc --version
+
+    - name: Run Robot
       run: |
         rcc task run
 
-    - name: Upload Output Files
+    - name: Upload Output
       uses: actions/upload-artifact@v4
       with:
         name: robot-output
